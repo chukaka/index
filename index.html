@@ -13,13 +13,8 @@
 
     <script>
         function getData() {
-            // Токен вашего бота
-            var botToken = '7185239703:AAE6VSHZZcBa_fhCIrSLn50Wp25KNVcFpe8';
-            // URL для запроса данных
-            var apiUrl = `https://api.telegram.org/bot${botToken}/getdata`;
-
             $.ajax({
-                url: apiUrl,
+                url: 'https://barbarisdenis.pythonanywhere.com/getdata', // Измененный URL для обращения к вашему Flask-приложению
                 type: 'GET',
                 success: function(response) {
                     // Выводим ответ на страницу
