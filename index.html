@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Bot Request</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Запрос данных у Telegram бота</h1>
+    <button onclick="getData()">Получить данные</button>
+    <div id="response"></div>
+
+    <script>
+        function getData() {
+            // Токен вашего бота
+            var botToken = '7185239703:AAE6VSHZZcBa_fhCIrSLn50Wp25KNVcFpe8';
+            // URL для запроса данных
+            var apiUrl = `https://api.telegram.org/bot${botToken}/getdata`;
+
+            $.ajax({
+                url: apiUrl,
+                type: 'GET',
+                success: function(response) {
+                    // Выводим ответ на страницу
+                    $('#response').html(JSON.stringify(response));
+                },
+                error: function(xhr, status, error) {
+                    // Выводим сообщение об ошибке на страницу
+                    $('#response').html(`Произошла ошибка: ${error}`);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
